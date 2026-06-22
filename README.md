@@ -34,16 +34,28 @@ resources/
 
 ## Descripción breve de los paquetes
 
-app: contiene la clase principal Main.java, encargada de ejecutar el programa y mostrar el menú por consola.
+`app`: contiene la clase principal Main.java, encargada de ejecutar el programa y mostrar el menú por consola.
 
-model: contiene las clases principales del sistema, como Persona y Direccion.
+`model`: contiene las clases principales del sistema, como Persona y Direccion.
 
-data: contiene la clase encargada de leer los datos desde el archivo externo personas.txt.
+`data`: contiene la clase encargada de leer los datos desde el archivo externo personas.txt.
 
-service: contiene la clase que administra la colección de personas y permite realizar búsquedas o filtros.
+`service`: contiene la clase que administra la colección de personas y permite realizar búsquedas o filtros.
 
-util: contiene validaciones básicas utilizadas durante la carga de datos.
+`util`: contiene validaciones básicas utilizadas durante la carga de datos.
 
 ## Instrucciones para clonar y ejecutar el proyecto
 
 Clona el repositorio desde GitHub:
+```text
+git clone https://github.com/lolarrain/LlanquihueTourAppv2.git
+```
+Abre el proyecto en IntelliJ IDEA.
+
+Verifica que las clases estén correctamente ubicadas en sus paquetes correspondientes.
+
+Ejecuta el archivo Main.java desde el paquete app.
+
+Repositorio GitHub: [https://github.com/lolarrain/LlanquihueTourAppv2] Fecha de entrega: [22/06/2026]
+
+
