@@ -21,10 +21,8 @@ src/
 ├── model/
 │   ├── Persona.java
 │   ├── Direccion.java
-│   ├── Empleado.java
-│   └── Cliente.java
 ├── data/
-│   └── LectorArchivoPersonas.java
+│   └── LectorArchivo.java
 ├── service/
 │   └── GestorPersonas.java
 └── util/
