@@ -8,21 +8,27 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Clase encargada exclusivamente de leer personas desde un archivo externo.
  */
 public class LectorArchivo {
 
-    public ArrayList<Persona> leerPersonas(String rutaArchivo) {
-        ArrayList<Persona> personas = new ArrayList<>();
+    public List<Persona> leerPersonas(String rutaArchivo) {
+        List<Persona> personas = new ArrayList<>();
 
         try (BufferedReader lector = new BufferedReader(new FileReader(rutaArchivo))) {
 
             String linea;
 
             while ((linea = lector.readLine()) != null) {
-                String[] datos = linea.split(";");
+
+                if (Validador.textoVacio(linea)) {
+                    continue;
+                }
+
+                String[] datos = linea.split(";", -1);
 
                 if (Validador.lineaPersonaValida(datos)) {
                     Persona persona = crearPersonaDesdeDatos(datos);
@@ -40,15 +46,15 @@ public class LectorArchivo {
     }
 
     private Persona crearPersonaDesdeDatos(String[] datos) {
-        String rut = datos[0].trim();
-        String nombre = datos[1].trim();
-        String tipoPersona = datos[2].trim();
-        String telefono = datos[3].trim();
-        String correo = datos[4].trim();
-        String calle = datos[5].trim();
-        String numero = datos[6].trim();
-        String comuna = datos[7].trim();
-        String region = datos[8].trim();
+        String rut = Validador.limpiarTexto(datos[0]);
+        String nombre = Validador.limpiarTexto(datos[1]);
+        String tipoPersona = Validador.limpiarTexto(datos[2]);
+        String telefono = Validador.limpiarTexto(datos[3]);
+        String correo = Validador.limpiarTexto(datos[4]);
+        String calle = Validador.limpiarTexto(datos[5]);
+        String numero = Validador.limpiarTexto(datos[6]);
+        String comuna = Validador.limpiarTexto(datos[7]);
+        String region = Validador.limpiarTexto(datos[8]);
 
         Direccion direccion = new Direccion(calle, numero, comuna, region);
 

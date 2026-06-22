@@ -1,5 +1,7 @@
 package model;
 
+import util.Validador;
+
 /**
  * Clase base que representa a una persona vinculada a Llanquihue Tour.
  * Puede corresponder a un guía turístico, operador local o proveedor de transporte.
@@ -28,10 +30,10 @@ public class Persona {
 
     public void setRut(String rut) {
         try {
-            if (rut == null || rut.trim().isEmpty()) {
+            if (!Validador.rutValido(rut)) {
                 throw new IllegalArgumentException("El RUT no puede estar vacío.");
             }
-            this.rut = rut;
+            this.rut = Validador.limpiarTexto(rut);
         } catch (IllegalArgumentException e) {
             System.out.println("Error en RUT: " + e.getMessage());
             this.rut = "Sin RUT";
@@ -44,10 +46,10 @@ public class Persona {
 
     public void setNombre(String nombre) {
         try {
-            if (nombre == null || nombre.trim().isEmpty()) {
+            if (Validador.textoVacio(nombre)) {
                 throw new IllegalArgumentException("El nombre no puede estar vacío.");
             }
-            this.nombre = nombre;
+            this.nombre = Validador.limpiarTexto(nombre);
         } catch (IllegalArgumentException e) {
             System.out.println("Error en nombre: " + e.getMessage());
             this.nombre = "Sin nombre";
@@ -60,10 +62,10 @@ public class Persona {
 
     public void setTipoPersona(String tipoPersona) {
         try {
-            if (tipoPersona == null || tipoPersona.trim().isEmpty()) {
+            if (Validador.textoVacio(tipoPersona)) {
                 throw new IllegalArgumentException("El tipo de persona no puede estar vacío.");
             }
-            this.tipoPersona = tipoPersona;
+            this.tipoPersona = Validador.limpiarTexto(tipoPersona);
         } catch (IllegalArgumentException e) {
             System.out.println("Error en tipo de persona: " + e.getMessage());
             this.tipoPersona = "Sin tipo";
@@ -76,10 +78,10 @@ public class Persona {
 
     public void setTelefono(String telefono) {
         try {
-            if (telefono == null || telefono.trim().isEmpty()) {
+            if (!Validador.telefonoValido(telefono)) {
                 throw new IllegalArgumentException("El teléfono no puede estar vacío.");
             }
-            this.telefono = telefono;
+            this.telefono = Validador.limpiarTexto(telefono);
         } catch (IllegalArgumentException e) {
             System.out.println("Error en teléfono: " + e.getMessage());
             this.telefono = "Sin teléfono";
@@ -92,10 +94,10 @@ public class Persona {
 
     public void setCorreo(String correo) {
         try {
-            if (correo == null || correo.trim().isEmpty()) {
-                throw new IllegalArgumentException("El correo no puede estar vacío.");
+            if (!Validador.correoValido(correo)) {
+                throw new IllegalArgumentException("El correo debe contener @ y punto.");
             }
-            this.correo = correo;
+            this.correo = Validador.limpiarTexto(correo);
         } catch (IllegalArgumentException e) {
             System.out.println("Error en correo: " + e.getMessage());
             this.correo = "Sin correo";

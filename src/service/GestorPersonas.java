@@ -1,25 +1,27 @@
 package service;
 
 import model.Persona;
+import util.Validador;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Clase encargada de gestionar la colección de personas.
  */
 public class GestorPersonas {
 
-    private ArrayList<Persona> personas;
+    private List<Persona> personas;
 
     public GestorPersonas() {
         this.personas = new ArrayList<>();
     }
 
-    public ArrayList<Persona> getPersonas() {
+    public List<Persona> getPersonas() {
         return personas;
     }
 
-    public void cargarPersonas(ArrayList<Persona> personasLeidas) {
+    public void cargarPersonas(List<Persona> personasLeidas) {
         for (Persona persona : personasLeidas) {
             agregarPersona(persona);
         }
@@ -39,11 +41,16 @@ public class GestorPersonas {
     }
 
     public boolean existeRut(String rut) {
+        if (Validador.textoVacio(rut)) {
+            return false;
+        }
+
         for (Persona persona : personas) {
-            if (persona.getRut().equalsIgnoreCase(rut)) {
+            if (persona.getRut().equalsIgnoreCase(rut.trim())) {
                 return true;
             }
         }
+
         return false;
     }
 
@@ -60,26 +67,32 @@ public class GestorPersonas {
     }
 
     public void buscarPorRut(String rutBuscado) {
-        boolean encontrado = false;
+        if (Validador.textoVacio(rutBuscado)) {
+            System.out.println("Debe ingresar un RUT válido.");
+            return;
+        }
 
         for (Persona persona : personas) {
-            if (persona.getRut().equalsIgnoreCase(rutBuscado)) {
+            if (persona.getRut().equalsIgnoreCase(rutBuscado.trim())) {
                 System.out.println("------------------------------");
                 System.out.println(persona);
-                encontrado = true;
+                return;
             }
         }
 
-        if (!encontrado) {
-            System.out.println("No se encontró una persona con el RUT: " + rutBuscado);
-        }
+        System.out.println("No se encontró una persona con el RUT: " + rutBuscado);
     }
 
     public void filtrarPorTipo(String tipoBuscado) {
+        if (Validador.textoVacio(tipoBuscado)) {
+            System.out.println("Debe ingresar un tipo de persona válido.");
+            return;
+        }
+
         boolean encontrado = false;
 
         for (Persona persona : personas) {
-            if (persona.getTipoPersona().equalsIgnoreCase(tipoBuscado)) {
+            if (persona.getTipoPersona().equalsIgnoreCase(tipoBuscado.trim())) {
                 System.out.println("------------------------------");
                 System.out.println(persona);
                 encontrado = true;
@@ -92,10 +105,15 @@ public class GestorPersonas {
     }
 
     public void filtrarPorComuna(String comunaBuscada) {
+        if (Validador.textoVacio(comunaBuscada)) {
+            System.out.println("Debe ingresar una comuna válida.");
+            return;
+        }
+
         boolean encontrado = false;
 
         for (Persona persona : personas) {
-            if (persona.getDireccion().getComuna().equalsIgnoreCase(comunaBuscada)) {
+            if (persona.getDireccion().getComuna().equalsIgnoreCase(comunaBuscada.trim())) {
                 System.out.println("------------------------------");
                 System.out.println(persona);
                 encontrado = true;
