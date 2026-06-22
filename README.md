@@ -26,7 +26,9 @@ src/
 ├── service/
 │   └── GestorPersonas.java
 └── util/
-    └── Validador.java
+│   └── Validador.java
+└── ui/
+    └── MenuConsola.java
 
 resources/
 └── personas.txt
@@ -34,7 +36,7 @@ resources/
 
 ## Descripción breve de los paquetes
 
-`app`: contiene la clase principal Main.java, encargada de ejecutar el programa y mostrar el menú por consola.
+`app`: contiene la clase principal Main.java, encargada de ejecutar el programa.
 
 `model`: contiene las clases principales del sistema, como Persona y Direccion.
 
@@ -43,6 +45,8 @@ resources/
 `service`: contiene la clase que administra la colección de personas y permite realizar búsquedas o filtros.
 
 `util`: contiene validaciones básicas utilizadas durante la carga de datos.
+
+`ui`: muestra el menú, lee opciones y coordina acciones del usuario.
 
 ## Instrucciones para clonar y ejecutar el proyecto
 
