@@ -1,0 +1,5 @@
+12.345.678-9;María Soto;Guía turístico;+56 9 1234 5678;maria.soto@gmail.com;Vicente Pérez Rosales;120;Llanquihue;Región de Los Lagos
+15.456.789-0;Carlos Muñoz;Operador local;+56 9 9876 5432;carlos.munoz@llanquihuetour.cl;Costanera;455;Puerto Varas;Región de Los Lagos
+18.234.567-1;Ana Torres;Proveedor de transporte;+56 9 4567 8910;ana.torres@gmail.com;Angelmó;89;Puerto Montt;Región de Los Lagos
+16.987.654-3;Paula Vera;Guía turístico;+56 9 8765 4321;paula.vera@llanquihuetour.cl;Los Aromos;221;Frutillar;Región de Los Lagos
+17.111.222-4;Rodrigo Díaz;Operador local;+56 9 2222 3333;rodrigo.diaz@llanquihuetour.cl;Ruta V-155;45;Puerto Octay;Región de Los Lagos
